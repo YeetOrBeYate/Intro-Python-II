@@ -5,10 +5,15 @@ class Room:
     def __init__(self, name, description):
         self.name = name
         self.description = description
+        self.items = []
         self.n_to = None
         self.s_to = None
         self.e_to = None
         self.w_to = None
+
+    def set_items(self,item):
+        self.items.append(item)
+
     def __str__(self):
         return_string = "---------"
         return_string += "\n\n"
@@ -16,8 +21,10 @@ class Room:
         return_string += "\n\n"
         return_string += self.description
         return_string += "\n\n"
-        return_string += f"{self.get_exits_string()}"
+        return_string += f"Items: {self.items[0]}"
+        return_string += f"exits: {self.get_exits_string()}"
         return return_string
+
     def get_exits_string(self):
         exits = []
         if self.n_to:

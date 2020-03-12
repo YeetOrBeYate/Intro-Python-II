@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item, Food, Tool
 
 # Declare all the rooms
 
@@ -33,6 +34,29 @@ room['overlook'].s_to = room['foyer']
 room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
+
+#creating the default items
+item = {
+    'Cheese': Food('Cheddar', 'Slightly stale but tasty cheese block', 300),
+    'Orb' : Item('Ender Orb', 'minecraft thing'),
+
+    'waste': Item('Dust', 'some kind of powdering substance..maybe'),
+
+    'other': Item('Yeet', 'This is that good stuff'),
+
+    'Pick': Tool('Iron PickAxe', 'Used to mine', 4.5)
+}
+
+
+#adding defualt items to rooms
+
+room['outside'].set_items(item['Pick'])
+room['foyer'].set_items(item['Orb'])
+room['overlook'].set_items(item['Cheese'])
+room['narrow'].set_items(item['waste'])
+room['treasure'].set_items(item['other'])
+
+
 
 #
 # Main
