@@ -9,7 +9,10 @@ class Player:
     def print_info(self):
         print(self.name, self.current_room)
 
-    def change_room(self,room):
-        self.current_room = room
-
+    def travel(self,direction):
+        if getattr(self.current_room, f"{direction}_to"):
+            self.current_room = getattr(self.current_room, f"{direction}_to")
+            print(self.current_room)
+        else:
+            print('You cant move in that direction')
 

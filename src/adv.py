@@ -52,21 +52,21 @@ player = Player(name, room['outside'])
 
 player.print_info()
 
-yeet = int(input("[1] Start!  [2] Help  [9] Quit\n"))
+valid_directions = ('n', 's', 'e', 'w')
 
 while True:
 
-    if yeet ==1:
+    cmd = str(input("~~> "))
 
-        direction = str(input("Please tell me where you want to go, nesw"))
+    if cmd in valid_directions:
+        player.travel(cmd)
         
-        if direction = 'n':
-            
-
-    
-    if yeet ==9:
-        print('Goodbye!')
-        break
+    elif cmd == 'q':
+        print("Goodbye!")
+        exit(0)  
+    else:
+        print('dont understand command')
+          
     
 
 
