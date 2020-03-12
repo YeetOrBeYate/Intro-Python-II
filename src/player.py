@@ -6,6 +6,10 @@ class Player:
         self.name = name
         self.current_room= current_room
 
-p1 = Player('Yeet', 'outside')
+    def print_info(self):
+        print(self.name, self.current_room)
+
+    def change_room(self,room):
+        self.current_room = room
 
 

@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -44,12 +45,29 @@ room['treasure'].s_to = room['narrow']
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
-user = int(input("[1] Start!  [2] Help     [9] Quit\n"))
 
-while not user == 9:
+name = str(input("Please type your name "))
 
-    if user ==1:
-        str(input(""))
+player = Player(name, room['outside'])
+
+player.print_info()
+
+yeet = int(input("[1] Start!  [2] Help  [9] Quit\n"))
+
+while True:
+
+    if yeet ==1:
+
+        direction = str(input("Please tell me where you want to go, nesw"))
+        
+        if direction = 'n':
+            
+
+    
+    if yeet ==9:
+        print('Goodbye!')
+        break
+    
 
 
 
