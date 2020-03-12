@@ -55,6 +55,7 @@ room['foyer'].set_items(item['Orb'])
 room['overlook'].set_items(item['Cheese'])
 room['narrow'].set_items(item['waste'])
 room['treasure'].set_items(item['other'])
+room['treasure'].set_items(item['other'])
 
 
 
@@ -78,6 +79,8 @@ player.print_info()
 
 valid_directions = ('n', 's', 'e', 'w')
 
+item_commands = ('grab', 'drop')
+
 while True:
 
     cmd = str(input("~~> "))
@@ -88,6 +91,8 @@ while True:
     elif cmd == 'q':
         print("Goodbye!")
         exit(0)  
+    elif cmd in item_commands:
+        player.grab_item(cmd)
     else:
         print('dont understand command')
           

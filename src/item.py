@@ -5,9 +5,8 @@ class Item:
         self.description = description
 
     def __str__(self):
-        return_string = f"name:{self.name}"
+        return_string = f"{self.name}-{self.description}"
         return_string += "\n\n"
-        return_string += f"desc:{self.description}"
         return return_string
 
 class Food(Item):
@@ -16,11 +15,10 @@ class Food(Item):
         self.calories = calories
 
     def __str__(self):
-        return_string = f"name:{self.name}"
-        return_string += "\n\n"
-        return_string += f"desc:{self.description}"
+        return_string = f"{self.name}-{self.description}"
         return_string += "\n\n"
         return_string += f"calories:{self.calories}"
+        return_string += "\n\n"
         return return_string
 
 
@@ -31,9 +29,8 @@ class Tool(Item):
 
     
     def __str__(self):
-        return_string = f"name:{self.name}"
-        return_string += "\n\n"
-        return_string += f"desc:{self.description}"
+        return_string = f"{self.name}-{self.description}"
         return_string += "\n\n"
         return_string += f"size:{self.size}"
+        return_string += "\n\n"
         return return_string

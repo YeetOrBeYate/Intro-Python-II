@@ -15,13 +15,17 @@ class Room:
         self.items.append(item)
 
     def __str__(self):
+        makeString = ''.join(str(x) for x in self.items)
         return_string = "---------"
         return_string += "\n\n"
         return_string += self.name
         return_string += "\n\n"
         return_string += self.description
         return_string += "\n\n"
-        return_string += f"Items: {self.items[0]}"
+        return_string += f"Items:"
+        return_string += "\n\n"
+        return_string += f"{makeString}"
+        return_string += "\n\n"
         return_string += f"exits: {self.get_exits_string()}"
         return return_string
 
