@@ -1,4 +1,6 @@
 from room import Room
+from player import Player
+from item import Item, Food, Tool
 
 # Declare all the rooms
 
@@ -33,6 +35,30 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+#creating the default items
+item = {
+    'Cheese': Food('Cheddar', 'Slightly stale but tasty cheese block', 300),
+    'Orb' : Item('Ender Orb', 'minecraft thing'),
+
+    'waste': Item('Dust', 'some kind of powdering substance..maybe'),
+
+    'other': Item('Yeet', 'This is that good stuff'),
+
+    'Pick': Tool('Iron PickAxe', 'Used to mine', 4.5)
+}
+
+
+#adding defualt items to rooms
+
+room['outside'].set_items(item['Pick'])
+room['foyer'].set_items(item['Orb'])
+room['overlook'].set_items(item['Cheese'])
+room['narrow'].set_items(item['waste'])
+room['treasure'].set_items(item['other'])
+room['treasure'].set_items(item['other'])
+
+
+
 #
 # Main
 #
@@ -44,6 +70,37 @@ room['treasure'].s_to = room['narrow']
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
+
+name = str(input("Please type your name "))
+
+player = Player(name, room['outside'])
+
+player.print_info()
+
+valid_directions = ('n', 's', 'e', 'w')
+
+item_commands = ('grab', 'drop')
+
+while True:
+
+    cmd = str(input("~~> "))
+
+    if cmd in valid_directions:
+        player.travel(cmd)
+        
+    elif cmd == 'q':
+        print("Goodbye!")
+        exit(0)  
+    elif cmd in item_commands:
+        player.grab_item(cmd)
+    else:
+        print('dont understand command')
+          
+    
+
+
+
+
 #
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
